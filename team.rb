@@ -1,11 +1,11 @@
 class Team
     attr_accessor :name, :win, :lose, :draw
     
-    def initialize
-        self.name = ["Giants","Tigers","Dragons","BayStars","Carp","Swallows"]
-        self.win = [67,60,60,56,52,41]
-        self.lose = [45,53,55,58,56,69]
-        self.draw = [8,7,5,6,12,10]
+    def initialize (name,win,lose,draw)
+        self.name = name
+        self.win = win
+        self.lose = lose
+        self.draw = draw
     end
     
     def calc_win_rate(win_time,lose_time)
@@ -14,13 +14,25 @@ class Team
     end
     
     def show_team_result
-        team_size = self.name.length
-        0.upto(team_size-1) do |number|
-            puts "#{self.name[number]}の2020年の成績は#{self.win[number]}勝 #{self.lose[number]}敗 #{self.lose[number]}分、勝率は#{calc_win_rate(self.win[number],self.lose[number])}です。"
-        end
+        puts "#{self.name}の2020年の成績は#{self.win}勝 #{self.lose}敗 #{self.lose}分、勝率は#{calc_win_rate(self.win,self.lose)}です。"
     end
             
 end
 
-team1 = Team.new
+team1 = Team.new("Giants",67,45,8)
 team1.show_team_result
+
+team2 = Team.new("Tigers",60,53,7)
+team2.show_team_result
+
+team3 = Team.new("Dragons",60,55,5)
+team3.show_team_result
+
+team4 = Team.new("BayStars",56,58,6)
+team4.show_team_result
+
+team5 = Team.new("Carp",52,56,12)
+team5.show_team_result
+
+team6 = Team.new("Swallows",41,69,10)
+team6.show_team_result
